@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRENOVA | Agencia Creativa para Cafeterías</title>
+    <style>
+        :root {
+            /* Paleta: Color Hueso y Azul */
+            --bone-light: #F9F8F3; /* Hueso muy claro para fondo general */
+            --bone: #EAE6D9;       /* Hueso estándar para secciones */
+            --bone-dark: #D4CEBB;  /* Detalles */
+            
+            --blue-dark: #12284C;  /* Azul rey oscuro (logo) */
+            --blue-mid: #254A7B;   /* Azul medio */
+            --blue-light: #4A7BAF; /* Azul suave para acentos */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bone-light);
+            color: var(--blue-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: var(--bone);
+            box-shadow: 0 2px 10px rgba(18, 40, 76, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo-container img {
+            height: 65px;
+            object-fit: contain;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--blue-dark);
+            margin-left: 2rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--blue-light);
+        }
+        
+        .btn {
+            background-color: var(--blue-dark);
+            color: var(--bone-light) !important;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background-color: var(--blue-mid);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(18, 40, 76, 0.2);
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6rem 5%;
+            text-align: left;
+            background: linear-gradient(135deg, var(--bone-light) 0%, var(--bone) 100%);
+            min-height: 80vh;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 4rem;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            color: var(--blue-dark);
+        }
+        
+        .hero-text h1 span {
+            color: var(--blue-light);
+        }
+        
+        .hero-text p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: var(--blue-mid);
+            max-width: 90%;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: right;
+            position: relative;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(18, 40, 76, 0.15);
+        }
+        
+        /* SERVICES */
+        .services {
+            padding: 6rem 5%;
+            text-align: center;
+            background-color: var(--bone-light);
+        }
+        
+        .services h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--blue-dark);
+        }
+        
+        .services > p {
+            font-size: 1.1rem;
+            color: var(--blue-mid);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-card {
+            background-color: #FFFFFF;
+            padding: 2.5rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(18, 40, 76, 0.06);
+            transition: transform 0.3s ease;
+            border-bottom: 5px solid var(--blue-mid);
+            text-align: left;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-bottom-color: var(--blue-light);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--blue-dark);
+        }
+        
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--blue-dark);
+        }
+        
+        .service-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        /* PRICING */
+        .pricing {
+            background-color: var(--blue-dark);
+            color: var(--bone-light);
+            padding: 6rem 5%;
+            text-align: center;
+        }
+        
+        .pricing h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--bone-light);
+        }
+        
+        .pricing p.subtitle {
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            color: var(--bone);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .pricing-card {
+            background-color: var(--bone-light);
+            color: var(--blue-dark);
+            max-width: 420px;
+            margin: 0 auto;
+            padding: 3.5rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .badge {
+            background-color: var(--blue-light);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            color: var(--blue-mid);
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+        }
+        
+        .price span.currency {
+            font-size: 1.5rem;
+            margin-right: 5px;
+        }
+        
+        .price span.period {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: normal;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2.5rem;
+        }
+        
+        .pricing-features li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1rem;
+            color: #444;
+        }
+        
+        .pricing-features li::before {
+            content: "✦";
+            color: var(--blue-light);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        .pricing-card .btn {
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 1rem;
+        }
+        
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            background-color: var(--bone);
+            color: var(--blue-dark);
+            border-top: 1px solid var(--bone-dark);
+        }
+        
+        footer p {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 4rem;
+            }
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 4rem;
+            }
+            .hero-text p {
+                margin: 0 auto 2.5rem auto;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            nav a {
+                display: none;
+            }
+            nav a.btn {
+                display: inline-block;
+                margin-left: 0;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .price {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <!-- Usando el logo proporcionado -->
+            <img src="/img/logo KRENOVA.jpg" alt="Logo KRENOVA">
+        </div>
+        <nav>
+            <a href="#servicios">Servicios</a>
+            <a href="#precios">Precios</a>
+            <a href="#contacto" class="btn">Empezar ahora</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Haz que tu cafetería sea <span>la favorita</span> de la ciudad</h1>
+            <p>Ayudamos a pequeños negocios y cafeterías a darse a conocer, crear contenido atractivo y conseguir clientes locales a través de publicidad digital estratégica.</p>
+            <a href="#precios" class="btn">Ver paquete para cafeterías</a>
+        </div>
+        <div class="hero-image">
+            <img src="img/agencia .jpg" alt="Cafetería">
+        </div>
+    </section>
+
+    <section id="servicios" class="services">
+        <h2>¿Cómo ayudamos a tu negocio?</h2>
+        <p>Todo lo que necesitas para tener una presencia profesional en internet, sin complicaciones.</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Redes Sociales Activas</h3>
+                <p>Gestión y creación de contenido constante para Instagram, Facebook y TikTok. Mantenemos a tu audiencia cautivada.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Diseño Visual Atractivo</h3>
+                <p>Diseñamos publicaciones, historias y material gráfico con una estética cuidada que refleje la esencia de tu menú y local.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✍️</div>
+                <h3>Textos Persuasivos</h3>
+                <p>Redactamos copys y textos para tus publicaciones y anuncios que conectan con tus clientes y los invitan a visitarte.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📢</div>
+                <h3>Publicidad Digital</h3>
+                <p>Campañas de anuncios dirigidas específicamente a personas de tu zona. Medimos los resultados básicos mes a mes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="precios" class="pricing">
+        <h2>La inversión ideal para iniciar</h2>
+        <p class="subtitle">Estructuramos un plan sumamente accesible pensado exclusivamente en emprendedores y cafeterías de reciente apertura que necesitan arrancar con fuerza.</p>
+        
+        <div class="pricing-card">
+            <div class="badge">Especial Cafeterías</div>
+            <h3>Plan Arranque Local</h3>
+            <div class="price">
+                <span class="currency">$</span>259<span class="period">/mes</span>
+            </div>
+            <ul class="pricing-features">
+                <li>Creación de contenido mensual</li>
+                <li>Diseño de posts e historias</li>
+                <li>Redacción de textos persuasivos</li>
+                <li>Gestión de campañas de publicidad</li>
+                <li>Seguimiento básico de resultados</li>
+            </ul>
+            <a href="https://wa.me/5632891335/" target="_blank"  class="btn">Solicitar servicio</a>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p><strong>KRENOVA</strong> Advertising Agency</p>
+        <p>Impulsando cafeterías y pequeños negocios al siguiente nivel.</p>
+        <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">© 2026 Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
